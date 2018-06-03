@@ -1,0 +1,13 @@
+log.txt
+errors.txt
+traceback.txt
+
+/game/saves
+/game/cache
+#/game/gui
+
+*.rpyc
+*.rpyb
+*.rpymc
+*.pyc
+*.pyo
