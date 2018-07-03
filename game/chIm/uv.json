@@ -1,0 +1,56 @@
+{
+  "name": "ЮВАО",
+
+  "sprites": {
+      "width": 900,
+      "height": 1080,
+
+      "windHair": {
+        "body": "uv_1_body.png",
+        "clothes": {
+          "pioneer": "uv_1_pioneer.png"
+        },
+        "emotes": {
+          "dontlike": "uv_1_dontlike.png",
+          "rage": "uv_1_rage.png",
+          "sad": "uv_1_sad.png",
+          "shocked": "uv_1_shocked.png"
+        }
+      },
+
+      "tiltedHead": {
+        "body": "uv_2_body.png",
+        "clothes": {
+          "pioneer": "uv_2_pioneer.png"
+        },
+        "emotes": {
+          "normal": "uv_2_normal.png",
+          "smile": "uv_2_smile.png"
+        }
+      },
+
+      "handsOnFace": {
+        "body": "uv_3_body.png",
+        "clothes": {
+          "pioneer": "uv_3_pioneer.png"
+        },
+        "emotes": {
+          "grin": "uv_3_grin.png",
+          "laugh": "uv_3_laugh.png",
+          "surprise": "uv_3_surprise2.png"
+        }
+      },
+
+      "handOnEar": {
+        "body": "uv_4_body.png",
+        "clothes": {
+          "pioneer": "uv_4_pioneer.png"
+        },
+        "emotes": {
+          "guilty": "uv_3_guilty.png",
+          "upset": "uv_4_upset.png",
+          "surprise": "uv_4_surprise.png"
+        }
+      }
+  }
+}
