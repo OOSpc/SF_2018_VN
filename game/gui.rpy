@@ -86,7 +86,8 @@ define gui.title_text_size = 75
 ## Главное и игровое меню. #####################################################
 
 ## Изображения, используемые в главном и игровом меню.
-define gui.main_menu_background = "gui/main_menu.png"
+define gui.main_menu_background = "/img/gui/menu_day.png"
+define gui.main_menu_background_hover = "/img/gui/menu_day_hover.png"
 define gui.game_menu_background = "gui/game_menu.png"
 
 
@@ -473,6 +474,3 @@ init python:
 
         gui.nvl_button_width = 1860
         gui.nvl_button_xpos = 30
-
-
-
