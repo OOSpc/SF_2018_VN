@@ -360,17 +360,16 @@ screen main_menu():
     imagemap:
         ground gui.main_menu_background
         hover gui.main_menu_background_hover
-        alpha True
+        # cache True
+        alpha False
 
-        hotspot (865, 351, 208, 725) action Start()
-        hotspot (360, 251, 324, 827) action ShowMenu("load")
-        hotspot (1219, 275, 292, 803) action ShowMenu("save")
-        hotspot (1, 1, 482, 628) action Gallery()
-
-        hotspot (582, 64, 277, 417) action ShowMenu("preferences")
-        # hotspot (807, 82, 234, 386) action Authors()
-        hotspot (1705, 209, 185, 473) action Quit(confirm=False)
-
+        hotspot (0, 0, 554, 712) action Gallery()
+        hotspot (356, 223, 342, 855) action ShowMenu("load")
+        hotspot (572, 0, 292, 504) action ShowMenu("preferences")
+        hotspot (827, 334, 303, 744) action Start()
+        hotspot (861, 21, 264, 467) action ShowMenu("authors")
+        hotspot (1180, 251, 350, 827) action ShowMenu("save")
+        hotspot (1642, 142, 276, 754) action Quit(confirm=False)
 
     ## Эта пустая рамка затеняет главное меню.
     # frame:
@@ -390,7 +389,7 @@ screen main_menu():
                 style "main_menu_version"
 
 
-style main_menu_frame is empty
+# style main_menu_frame is empty
 # style main_menu_vbox is vbox
 style main_menu_text is gui_text
 style main_menu_title is main_menu_text
