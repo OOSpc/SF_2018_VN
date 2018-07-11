@@ -357,15 +357,15 @@ screen main_menu():
 
     style_prefix "main_menu"
 
-    add gui.main_menu_background
+    add gui.main_menu_day_background
 
-    ## Эта пустая рамка затеняет главное меню.
-    frame:
-        pass
-
-    ## Оператор use включает отображение другого экрана в данном. Актуальное
-    ## содержание главного меню находится на экране навигации.
-    use navigation
+    imagebutton auto "gui/main_menu/main_menu_day_gallery_%s.png" xpos 0 ypos 0 focus_mask True action Gallery()
+    imagebutton auto "gui/main_menu/main_menu_day_load_%s.png" xpos 0 ypos 0 focus_mask True action ShowMenu("load")
+    imagebutton auto "gui/main_menu/main_menu_day_preferences_%s.png" xpos 0 ypos 0 focus_mask True action ShowMenu("preferences")
+    imagebutton auto "gui/main_menu/main_menu_day_start_%s.png" xpos 0 ypos 0 focus_mask True action Start()
+    imagebutton auto "gui/main_menu/main_menu_day_about_%s.png" xpos 0 ypos 0 focus_mask True action ShowMenu("about")
+    imagebutton auto "gui/main_menu/main_menu_day_save_%s.png" xpos 0 ypos 0 focus_mask True action ShowMenu("save")
+    imagebutton auto "gui/main_menu/main_menu_day_quit_%s.png" xpos 0 ypos 0 focus_mask True action Quit(confirm=False)
 
     if gui.show_name:
 
@@ -377,8 +377,8 @@ screen main_menu():
                 style "main_menu_version"
 
 
-style main_menu_frame is empty
-style main_menu_vbox is vbox
+# style main_menu_frame is empty
+# style main_menu_vbox is vbox
 style main_menu_text is gui_text
 style main_menu_title is main_menu_text
 style main_menu_version is main_menu_text
@@ -581,7 +581,7 @@ style about_label_text:
 ## как они почти одинаковые, оба реализованы по правилам третьего экрана —
 ## file_slots.
 ##
-## https://www.renpy.org/doc/html/screen_special.html#save 
+## https://www.renpy.org/doc/html/screen_special.html#save
 
 screen save():
 
@@ -1508,8 +1508,3 @@ style slider_pref_vbox:
 style slider_pref_slider:
     variant "small"
     xsize 900
-
-
-
-
-
