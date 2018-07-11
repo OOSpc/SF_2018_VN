@@ -359,31 +359,13 @@ screen main_menu():
 
     add gui.main_menu_day_background
 
-    imagebutton auto "gui/main_menu/main_menu_day_quit_%s.png" xpos 0 ypos 0 focus_mask True action Quit(confirm=False)
+    imagebutton auto "gui/main_menu/main_menu_day_gallery_%s.png" xpos 0 ypos 0 focus_mask True action Gallery()
+    imagebutton auto "gui/main_menu/main_menu_day_load_%s.png" xpos 0 ypos 0 focus_mask True action ShowMenu("load")
+    imagebutton auto "gui/main_menu/main_menu_day_preferences_%s.png" xpos 0 ypos 0 focus_mask True action ShowMenu("preferences")
     imagebutton auto "gui/main_menu/main_menu_day_start_%s.png" xpos 0 ypos 0 focus_mask True action Start()
-
-
-    # imagemap:
-    #     ground gui.main_menu_background
-    #     hover gui.main_menu_background_hover
-    #     # cache True
-    #     alpha False
-    #
-    #     hotspot (0, 0, 554, 712) action Gallery()
-    #     hotspot (356, 223, 342, 855) action ShowMenu("load")
-    #     hotspot (572, 0, 292, 504) action ShowMenu("preferences")
-    #     hotspot (827, 334, 303, 744) action Start()
-    #     hotspot (861, 21, 264, 467) action ShowMenu("authors")
-    #     hotspot (1180, 251, 350, 827) action ShowMenu("save")
-    #     hotspot (1642, 142, 276, 754) action Quit(confirm=False)
-
-    ## Эта пустая рамка затеняет главное меню.
-    # frame:
-        # pass
-
-    ## Оператор use включает отображение другого экрана в данном. Актуальное
-    ## содержание главного меню находится на экране навигации.
-    # use navigation
+    imagebutton auto "gui/main_menu/main_menu_day_about_%s.png" xpos 0 ypos 0 focus_mask True action ShowMenu("about")
+    imagebutton auto "gui/main_menu/main_menu_day_save_%s.png" xpos 0 ypos 0 focus_mask True action ShowMenu("save")
+    imagebutton auto "gui/main_menu/main_menu_day_quit_%s.png" xpos 0 ypos 0 focus_mask True action Quit(confirm=False)
 
     if gui.show_name:
 
