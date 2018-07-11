@@ -357,19 +357,25 @@ screen main_menu():
 
     style_prefix "main_menu"
 
-    imagemap:
-        ground gui.main_menu_background
-        hover gui.main_menu_background_hover
-        # cache True
-        alpha False
+    add gui.main_menu_day_background
 
-        hotspot (0, 0, 554, 712) action Gallery()
-        hotspot (356, 223, 342, 855) action ShowMenu("load")
-        hotspot (572, 0, 292, 504) action ShowMenu("preferences")
-        hotspot (827, 334, 303, 744) action Start()
-        hotspot (861, 21, 264, 467) action ShowMenu("authors")
-        hotspot (1180, 251, 350, 827) action ShowMenu("save")
-        hotspot (1642, 142, 276, 754) action Quit(confirm=False)
+    imagebutton auto "gui/main_menu/main_menu_day_quit_%s.png" xpos 0 ypos 0 focus_mask True action Quit(confirm=False)
+    imagebutton auto "gui/main_menu/main_menu_day_start_%s.png" xpos 0 ypos 0 focus_mask True action Start()
+
+
+    # imagemap:
+    #     ground gui.main_menu_background
+    #     hover gui.main_menu_background_hover
+    #     # cache True
+    #     alpha False
+    #
+    #     hotspot (0, 0, 554, 712) action Gallery()
+    #     hotspot (356, 223, 342, 855) action ShowMenu("load")
+    #     hotspot (572, 0, 292, 504) action ShowMenu("preferences")
+    #     hotspot (827, 334, 303, 744) action Start()
+    #     hotspot (861, 21, 264, 467) action ShowMenu("authors")
+    #     hotspot (1180, 251, 350, 827) action ShowMenu("save")
+    #     hotspot (1642, 142, 276, 754) action Quit(confirm=False)
 
     ## Эта пустая рамка затеняет главное меню.
     # frame:
