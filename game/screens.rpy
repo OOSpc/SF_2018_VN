@@ -363,13 +363,55 @@ screen main_menu():
 
     add gui.main_menu_day_background
 
-    imagebutton auto "gui/main_menu/main_menu_day_gallery_%s.png" xpos 0 ypos 0 focus_mask True action [Play("mm_click", "snd/gui/clk.mp3"),Gallery()] hovered Play("mm_hovered", "snd/gui/hvr.mp3")
-    imagebutton auto "gui/main_menu/main_menu_day_load_%s.png" xpos 0 ypos 0 focus_mask True action [Play("mm_click", "snd/gui/clk.mp3"),ShowMenu("load")] hovered Play("mm_hovered", "snd/gui/hvr.mp3")
-    imagebutton auto "gui/main_menu/main_menu_day_preferences_%s.png" xpos 0 ypos 0 focus_mask True action [Play("mm_click", "snd/gui/clk.mp3"),ShowMenu("preferences")] hovered Play("mm_hovered", "snd/gui/hvr.mp3")
-    imagebutton auto "gui/main_menu/main_menu_day_start_%s.png" xpos 0 ypos 0 focus_mask True action [Play("mm_click", "snd/gui/clk.mp3"),Start()] hovered Play("mm_hovered", "snd/gui/hvr.mp3")
-    imagebutton auto "gui/main_menu/main_menu_day_about_%s.png" xpos 0 ypos 0 focus_mask True action [Play("mm_click", "snd/gui/clk.mp3"),ShowMenu("about")] hovered Play("mm_hovered", "snd/gui/hvr.mp3")
-    imagebutton auto "gui/main_menu/main_menu_day_save_%s.png" xpos 0 ypos 0 focus_mask True action [Play("mm_click", "snd/gui/clk.mp3"),ShowMenu("save")] hovered Play("mm_hovered", "snd/gui/hvr.mp3")
-    imagebutton auto "gui/main_menu/main_menu_day_quit_%s.png" xpos 0 ypos 0 focus_mask True action [Play("mm_click", "snd/gui/clk.mp3"),Quit(confirm=False)] hovered Play("mm_hovered", "snd/gui/hvr.mp3")
+    $ mm_day_btns_prefix = "img/gui/main_menu/main_menu_"
+    imagebutton:
+        auto mm_day_btns_prefix + "gallery_%s.png"
+        xpos 0 ypos 0
+        focus_mask True
+        action [Play("mm_click", "snd/gui/clk.mp3"),Gallery()]
+        hovered Play("mm_hovered", "snd/gui/hvr.mp3")
+
+    imagebutton:
+        auto mm_day_btns_prefix + "load_%s.png"
+        xpos 0 ypos 0
+        focus_mask True
+        action [Play("mm_click", "snd/gui/clk.mp3"),ShowMenu("load")]
+        hovered Play("mm_hovered", "snd/gui/hvr.mp3")
+
+    imagebutton:
+        auto mm_day_btns_prefix + "preferences_%s.png"
+        xpos 0 ypos 0
+        focus_mask True
+        action [Play("mm_click", "snd/gui/clk.mp3"),ShowMenu("preferences")]
+        hovered Play("mm_hovered", "snd/gui/hvr.mp3")
+
+    imagebutton:
+        auto mm_day_btns_prefix + "start_%s.png"
+        xpos 0 ypos 0
+        focus_mask True
+        action [Play("mm_click", "snd/gui/clk.mp3"),Start()]
+        hovered Play("mm_hovered", "snd/gui/hvr.mp3")
+
+    imagebutton:
+        auto mm_day_btns_prefix + "about_%s.png"
+        xpos 0 ypos 0
+        focus_mask True
+        action [Play("mm_click", "snd/gui/clk.mp3"),ShowMenu("about")]
+        hovered Play("mm_hovered", "snd/gui/hvr.mp3")
+
+    imagebutton:
+        auto mm_day_btns_prefix + "save_%s.png"
+        xpos 0 ypos 0
+        focus_mask True
+        action [Play("mm_click", "snd/gui/clk.mp3"),ShowMenu("save")]
+        hovered Play("mm_hovered", "snd/gui/hvr.mp3")
+
+    imagebutton:
+        auto mm_day_btns_prefix + "quit_%s.png"
+        xpos 0 ypos 0
+        focus_mask True
+        action [Play("mm_click", "snd/gui/clk.mp3"),Quit(confirm=False)]
+        hovered Play("mm_hovered", "snd/gui/hvr.mp3")
 
     if gui.show_name:
 
