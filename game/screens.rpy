@@ -363,7 +363,7 @@ screen main_menu():
 
     add gui.main_menu_day_background
 
-    $ mm_day_btns_prefix = "img/gui/main_menu/main_menu_"
+    $ mm_day_btns_prefix = "img/gui/main_menu/main_menu_day_"
     imagebutton:
         auto mm_day_btns_prefix + "gallery_%s.png"
         xpos 0 ypos 0
