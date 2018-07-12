@@ -136,7 +136,7 @@ style window:
     yalign gui.textbox_yalign
     ysize gui.textbox_height
 
-    background Image("gui/textbox.png", xalign=0.5, yalign=1.0)
+    background Image("img/gui/tw.png", xalign=0.5, yalign=1.0)
 
 style namebox:
     xpos gui.name_xpos
@@ -268,7 +268,7 @@ screen quick_menu():
 init python:
     config.overlay_screens.append("quick_menu")
 
-default quick_menu = True
+default quick_menu = False
 
 style quick_button is default
 style quick_button_text is button_text
@@ -349,6 +349,10 @@ style navigation_button_text:
 ##
 ## https://www.renpy.org/doc/html/screen_special.html#main-menu
 
+init python:
+    renpy.music.register_channel("mm_click", "sfx", False)
+    renpy.music.register_channel("mm_hovered", "sfx", False)
+
 screen main_menu():
 
     ## Этот тег гарантирует, что любой другой экран с тем же тегом будет
@@ -357,15 +361,57 @@ screen main_menu():
 
     style_prefix "main_menu"
 
-    add gui.main_menu_background
+    add gui.main_menu_day_background
 
-    ## Эта пустая рамка затеняет главное меню.
-    frame:
-        pass
+    $ mm_day_btns_prefix = "img/gui/main_menu/main_menu_day_"
+    imagebutton:
+        auto mm_day_btns_prefix + "gallery_%s.png"
+        xpos 0 ypos 0
+        focus_mask True
+        action [Play("mm_click", "snd/gui/clk.mp3"),Gallery()]
+        hovered Play("mm_hovered", "snd/gui/hvr.mp3")
 
-    ## Оператор use включает отображение другого экрана в данном. Актуальное
-    ## содержание главного меню находится на экране навигации.
-    use navigation
+    imagebutton:
+        auto mm_day_btns_prefix + "load_%s.png"
+        xpos 0 ypos 0
+        focus_mask True
+        action [Play("mm_click", "snd/gui/clk.mp3"),ShowMenu("load")]
+        hovered Play("mm_hovered", "snd/gui/hvr.mp3")
+
+    imagebutton:
+        auto mm_day_btns_prefix + "preferences_%s.png"
+        xpos 0 ypos 0
+        focus_mask True
+        action [Play("mm_click", "snd/gui/clk.mp3"),ShowMenu("preferences")]
+        hovered Play("mm_hovered", "snd/gui/hvr.mp3")
+
+    imagebutton:
+        auto mm_day_btns_prefix + "start_%s.png"
+        xpos 0 ypos 0
+        focus_mask True
+        action [Play("mm_click", "snd/gui/clk.mp3"),Start()]
+        hovered Play("mm_hovered", "snd/gui/hvr.mp3")
+
+    imagebutton:
+        auto mm_day_btns_prefix + "about_%s.png"
+        xpos 0 ypos 0
+        focus_mask True
+        action [Play("mm_click", "snd/gui/clk.mp3"),ShowMenu("about")]
+        hovered Play("mm_hovered", "snd/gui/hvr.mp3")
+
+    imagebutton:
+        auto mm_day_btns_prefix + "save_%s.png"
+        xpos 0 ypos 0
+        focus_mask True
+        action [Play("mm_click", "snd/gui/clk.mp3"),ShowMenu("save")]
+        hovered Play("mm_hovered", "snd/gui/hvr.mp3")
+
+    imagebutton:
+        auto mm_day_btns_prefix + "quit_%s.png"
+        xpos 0 ypos 0
+        focus_mask True
+        action [Play("mm_click", "snd/gui/clk.mp3"),Quit(confirm=False)]
+        hovered Play("mm_hovered", "snd/gui/hvr.mp3")
 
     if gui.show_name:
 
@@ -377,8 +423,8 @@ screen main_menu():
                 style "main_menu_version"
 
 
-style main_menu_frame is empty
-style main_menu_vbox is vbox
+# style main_menu_frame is empty
+# style main_menu_vbox is vbox
 style main_menu_text is gui_text
 style main_menu_title is main_menu_text
 style main_menu_version is main_menu_text
@@ -581,7 +627,7 @@ style about_label_text:
 ## как они почти одинаковые, оба реализованы по правилам третьего экрана —
 ## file_slots.
 ##
-## https://www.renpy.org/doc/html/screen_special.html#save 
+## https://www.renpy.org/doc/html/screen_special.html#save
 
 screen save():
 
@@ -1508,8 +1554,3 @@ style slider_pref_vbox:
 style slider_pref_slider:
     variant "small"
     xsize 900
-
-
-
-
-
