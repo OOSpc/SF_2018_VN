@@ -136,7 +136,7 @@ style window:
     yalign gui.textbox_yalign
     ysize gui.textbox_height
 
-    background Image("gui/textbox.png", xalign=0.5, yalign=1.0)
+    background Image("img/gui/tw.png", xalign=0.5, yalign=1.0)
 
 style namebox:
     xpos gui.name_xpos
@@ -268,7 +268,7 @@ screen quick_menu():
 init python:
     config.overlay_screens.append("quick_menu")
 
-default quick_menu = True
+default quick_menu = False
 
 style quick_button is default
 style quick_button_text is button_text
@@ -349,6 +349,10 @@ style navigation_button_text:
 ##
 ## https://www.renpy.org/doc/html/screen_special.html#main-menu
 
+init python:
+    renpy.music.register_channel("mm_click", "sfx", False)
+    renpy.music.register_channel("mm_hovered", "sfx", False)
+
 screen main_menu():
 
     ## Этот тег гарантирует, что любой другой экран с тем же тегом будет
@@ -359,13 +363,13 @@ screen main_menu():
 
     add gui.main_menu_day_background
 
-    imagebutton auto "gui/main_menu/main_menu_day_gallery_%s.png" xpos 0 ypos 0 focus_mask True action Gallery()
-    imagebutton auto "gui/main_menu/main_menu_day_load_%s.png" xpos 0 ypos 0 focus_mask True action ShowMenu("load")
-    imagebutton auto "gui/main_menu/main_menu_day_preferences_%s.png" xpos 0 ypos 0 focus_mask True action ShowMenu("preferences")
-    imagebutton auto "gui/main_menu/main_menu_day_start_%s.png" xpos 0 ypos 0 focus_mask True action Start()
-    imagebutton auto "gui/main_menu/main_menu_day_about_%s.png" xpos 0 ypos 0 focus_mask True action ShowMenu("about")
-    imagebutton auto "gui/main_menu/main_menu_day_save_%s.png" xpos 0 ypos 0 focus_mask True action ShowMenu("save")
-    imagebutton auto "gui/main_menu/main_menu_day_quit_%s.png" xpos 0 ypos 0 focus_mask True action Quit(confirm=False)
+    imagebutton auto "gui/main_menu/main_menu_day_gallery_%s.png" xpos 0 ypos 0 focus_mask True action [Play("mm_click", "snd/gui/clk.mp3"),Gallery()] hovered Play("mm_hovered", "snd/gui/hvr.mp3")
+    imagebutton auto "gui/main_menu/main_menu_day_load_%s.png" xpos 0 ypos 0 focus_mask True action [Play("mm_click", "snd/gui/clk.mp3"),ShowMenu("load")] hovered Play("mm_hovered", "snd/gui/hvr.mp3")
+    imagebutton auto "gui/main_menu/main_menu_day_preferences_%s.png" xpos 0 ypos 0 focus_mask True action [Play("mm_click", "snd/gui/clk.mp3"),ShowMenu("preferences")] hovered Play("mm_hovered", "snd/gui/hvr.mp3")
+    imagebutton auto "gui/main_menu/main_menu_day_start_%s.png" xpos 0 ypos 0 focus_mask True action [Play("mm_click", "snd/gui/clk.mp3"),Start()] hovered Play("mm_hovered", "snd/gui/hvr.mp3")
+    imagebutton auto "gui/main_menu/main_menu_day_about_%s.png" xpos 0 ypos 0 focus_mask True action [Play("mm_click", "snd/gui/clk.mp3"),ShowMenu("about")] hovered Play("mm_hovered", "snd/gui/hvr.mp3")
+    imagebutton auto "gui/main_menu/main_menu_day_save_%s.png" xpos 0 ypos 0 focus_mask True action [Play("mm_click", "snd/gui/clk.mp3"),ShowMenu("save")] hovered Play("mm_hovered", "snd/gui/hvr.mp3")
+    imagebutton auto "gui/main_menu/main_menu_day_quit_%s.png" xpos 0 ypos 0 focus_mask True action [Play("mm_click", "snd/gui/clk.mp3"),Quit(confirm=False)] hovered Play("mm_hovered", "snd/gui/hvr.mp3")
 
     if gui.show_name:
 
