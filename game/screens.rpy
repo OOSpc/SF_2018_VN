@@ -400,10 +400,10 @@ screen main_menu():
         hovered Play("mm_hovered", "snd/gui/hvr.mp3")
 
     imagebutton:
-        auto mm_day_btns_prefix + "save_%s.png"
+        auto mm_day_btns_prefix + "music_room_%s.png"
         xpos 0 ypos 0
         focus_mask True
-        action [Play("mm_click", "snd/gui/clk.mp3"),ShowMenu("save")]
+        action [Play("mm_click", "snd/gui/clk.mp3"),ShowMenu("music_room")]
         hovered Play("mm_hovered", "snd/gui/hvr.mp3")
 
     imagebutton:
@@ -411,6 +411,13 @@ screen main_menu():
         xpos 0 ypos 0
         focus_mask True
         action [Play("mm_click", "snd/gui/clk.mp3"),Quit(confirm=False)]
+        hovered Play("mm_hovered", "snd/gui/hvr.mp3")
+
+    imagebutton:
+        auto mm_day_btns_prefix + "link_%s.png"
+        xpos 0 ypos 0
+        focus_mask True
+        action [Play("mm_click", "snd/gui/clk.mp3"),OpenURL("https://vk.com/sovyonok_party")]
         hovered Play("mm_hovered", "snd/gui/hvr.mp3")
 
     if gui.show_name:
