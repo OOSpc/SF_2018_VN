@@ -109,6 +109,16 @@ screen say(who, what):
 
         text what id "what"
 
+    $ dialogue_box_prefix = "img/gui/dialogue_box/"
+    imagebutton:
+        auto dialogue_box_prefix + "backward_%s.png"
+        xpos 38 ypos 924
+        action ShowMenu("history")
+
+    imagebutton:
+        auto dialogue_box_prefix + "forward_%s.png"
+        xpos 1811 ypos 924
+        action Skip()
 
     ## Если есть боковое изображение ("голова"), показывает её поверх текста.
     ## По стандарту не показывается на варианте для мобильных устройств — мало
@@ -136,7 +146,7 @@ style window:
     yalign gui.textbox_yalign
     ysize gui.textbox_height
 
-    background Image("img/gui/tw.png", xalign=0.5, yalign=1.0)
+    background Image("img/gui/dialogue_box/tw.png", xalign=0.5, yalign=1.0)
 
 style namebox:
     xpos gui.name_xpos
@@ -400,10 +410,10 @@ screen main_menu():
         hovered Play("mm_hovered", "snd/gui/hvr.mp3")
 
     imagebutton:
-        auto mm_day_btns_prefix + "save_%s.png"
+        auto mm_day_btns_prefix + "music_room_%s.png"
         xpos 0 ypos 0
         focus_mask True
-        action [Play("mm_click", "snd/gui/clk.mp3"),ShowMenu("save")]
+        action [Play("mm_click", "snd/gui/clk.mp3"),ShowMenu("music_room")]
         hovered Play("mm_hovered", "snd/gui/hvr.mp3")
 
     imagebutton:
@@ -411,6 +421,13 @@ screen main_menu():
         xpos 0 ypos 0
         focus_mask True
         action [Play("mm_click", "snd/gui/clk.mp3"),Quit(confirm=False)]
+        hovered Play("mm_hovered", "snd/gui/hvr.mp3")
+
+    imagebutton:
+        auto mm_day_btns_prefix + "link_%s.png"
+        xpos 0 ypos 0
+        focus_mask True
+        action [Play("mm_click", "snd/gui/clk.mp3"),OpenURL("https://vk.com/sovyonok_party")]
         hovered Play("mm_hovered", "snd/gui/hvr.mp3")
 
     if gui.show_name:
