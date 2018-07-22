@@ -109,6 +109,16 @@ screen say(who, what):
 
         text what id "what"
 
+    $ dialogue_box_prefix = "img/gui/dialogue_box/"
+    imagebutton:
+        auto dialogue_box_prefix + "backward_%s.png"
+        xpos 38 ypos 924
+        action ShowMenu("history")
+
+    imagebutton:
+        auto dialogue_box_prefix + "forward_%s.png"
+        xpos 1811 ypos 924
+        action Skip()
 
     ## Если есть боковое изображение ("голова"), показывает её поверх текста.
     ## По стандарту не показывается на варианте для мобильных устройств — мало
@@ -136,7 +146,7 @@ style window:
     yalign gui.textbox_yalign
     ysize gui.textbox_height
 
-    background Image("img/gui/tw.png", xalign=0.5, yalign=1.0)
+    background Image("img/gui/dialogue_box/tw.png", xalign=0.5, yalign=1.0)
 
 style namebox:
     xpos gui.name_xpos
