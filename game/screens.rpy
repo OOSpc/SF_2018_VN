@@ -428,7 +428,7 @@ screen main_menu():
         xpos 0 ypos 0
         focus_mask True
         action [Play("mm_click", "snd/gui/clk.mp3"),OpenURL("https://vk.com/sovyonok_party")]
-        hovered Play("mm_hovered", "snd/gui/hvr.mp3")
+        hovered [Play("mm_hovered", "snd/gui/hvr.mp3"), Notify("Сообщество \"Совёнок-феста\"")]
 
     if gui.show_name:
 
@@ -1339,7 +1339,7 @@ style notify_text is gui_text
 style notify_frame:
     ypos gui.notify_ypos
 
-    background Frame("gui/notify.png", gui.notify_frame_borders, tile=gui.frame_tile)
+    background Frame("img/gui/notify.png", gui.notify_frame_borders, tile=gui.frame_tile)
     padding gui.notify_frame_borders.padding
 
 style notify_text:
