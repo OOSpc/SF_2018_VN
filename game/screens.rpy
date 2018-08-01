@@ -359,10 +359,6 @@ style navigation_button_text:
 ##
 ## https://www.renpy.org/doc/html/screen_special.html#main-menu
 
-init python:
-    renpy.music.register_channel("mm_click", "sfx", False)
-    renpy.music.register_channel("mm_hovered", "sfx", False)
-
 screen main_menu():
 
     ## Этот тег гарантирует, что любой другой экран с тем же тегом будет
@@ -373,62 +369,74 @@ screen main_menu():
 
     add gui.main_menu_day_background
 
+    $ snd_button_hover = "snd/gui/hvr.mp3"
+    $ snd_button_activate = "snd/gui/clk.mp3"
+
     $ mm_day_btns_prefix = "img/gui/main_menu/main_menu_day_"
     imagebutton:
         auto mm_day_btns_prefix + "gallery_%s.png"
         xpos 0 ypos 0
         focus_mask True
-        action [Play("mm_click", "snd/gui/clk.mp3"),Gallery()]
-        hovered Play("mm_hovered", "snd/gui/hvr.mp3")
+        action Gallery()
+        hover_sound snd_button_hover
+        activate_sound snd_button_activate
 
     imagebutton:
         auto mm_day_btns_prefix + "load_%s.png"
         xpos 0 ypos 0
         focus_mask True
-        action [Play("mm_click", "snd/gui/clk.mp3"),ShowMenu("load")]
-        hovered Play("mm_hovered", "snd/gui/hvr.mp3")
+        action ShowMenu("load")
+        hover_sound snd_button_hover
+        activate_sound snd_button_activate
 
     imagebutton:
         auto mm_day_btns_prefix + "preferences_%s.png"
         xpos 0 ypos 0
         focus_mask True
-        action [Play("mm_click", "snd/gui/clk.mp3"),ShowMenu("preferences")]
-        hovered Play("mm_hovered", "snd/gui/hvr.mp3")
+        action ShowMenu("preferences")
+        hover_sound snd_button_hover
+        activate_sound snd_button_activate
 
     imagebutton:
         auto mm_day_btns_prefix + "start_%s.png"
         xpos 0 ypos 0
         focus_mask True
-        action [Play("mm_click", "snd/gui/clk.mp3"),Start()]
-        hovered Play("mm_hovered", "snd/gui/hvr.mp3")
+        action Start()
+        hover_sound snd_button_hover
+        activate_sound snd_button_activate
 
     imagebutton:
         auto mm_day_btns_prefix + "about_%s.png"
         xpos 0 ypos 0
         focus_mask True
-        action [Play("mm_click", "snd/gui/clk.mp3"),ShowMenu("about")]
-        hovered Play("mm_hovered", "snd/gui/hvr.mp3")
+        action ShowMenu("about")
+        hover_sound snd_button_hover
+        activate_sound snd_button_activate
 
     imagebutton:
         auto mm_day_btns_prefix + "music_room_%s.png"
         xpos 0 ypos 0
         focus_mask True
-        action [Play("mm_click", "snd/gui/clk.mp3"),ShowMenu("music_room")]
-        hovered Play("mm_hovered", "snd/gui/hvr.mp3")
+        action ShowMenu("music_room")
+        hover_sound snd_button_hover
+        activate_sound snd_button_activate
 
     imagebutton:
         auto mm_day_btns_prefix + "quit_%s.png"
         xpos 0 ypos 0
         focus_mask True
-        action [Play("mm_click", "snd/gui/clk.mp3"),Quit(confirm=False)]
-        hovered Play("mm_hovered", "snd/gui/hvr.mp3")
+        action Quit(confirm=False)
+        hover_sound snd_button_hover
+        activate_sound snd_button_activate
 
     imagebutton:
         auto mm_day_btns_prefix + "link_%s.png"
         xpos 0 ypos 0
         focus_mask True
-        action [Play("mm_click", "snd/gui/clk.mp3"),OpenURL("https://vk.com/sovyonok_party")]
-        hovered [Play("mm_hovered", "snd/gui/hvr.mp3"), Notify("Сообщество \"Совёнок-феста\"")]
+        action OpenURL("https://vk.com/sovyonok_party")
+        hovered Notify("Сообщество \"Совёнок-феста\"")
+        hover_sound snd_button_hover
+        activate_sound snd_button_activate
 
     if gui.show_name:
 
