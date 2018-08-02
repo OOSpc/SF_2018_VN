@@ -113,12 +113,12 @@ screen say(who, what):
     imagebutton:
         auto dialogue_box_prefix + "backward_%s.png"
         xpos 38 ypos 924
-        action ShowMenu("history")
+        action Rollback()
 
     imagebutton:
         auto dialogue_box_prefix + "forward_%s.png"
         xpos 1811 ypos 924
-        action Skip()
+        action RollForward()
 
     ## Если есть боковое изображение ("голова"), показывает её поверх текста.
     ## По стандарту не показывается на варианте для мобильных устройств — мало
