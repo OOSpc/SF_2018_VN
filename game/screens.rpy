@@ -95,6 +95,8 @@ style frame:
 ## https://www.renpy.org/doc/html/screen_special.html#say
 
 screen say(who, what):
+    key "mouseup_3" action ShowMenu("history")
+
     style_prefix "say"
 
     window:
@@ -1119,7 +1121,7 @@ screen mouse_help():
 
     hbox:
         label _("Правый клик")
-        text _("Вход в игровое меню.")
+        text _("Вход в меню истории.")
 
     hbox:
         label _("Колёсико вверх\nКлик на сторону отката")
