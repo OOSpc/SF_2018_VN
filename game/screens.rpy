@@ -599,6 +599,25 @@ style return_button:
     yoffset -45
 
 
+## Галерея #####################################################################
+init python:
+    gallery = Gallery()
+
+    gallery_bg = [
+    "night_forest",
+    "night_forest_clouds"
+    ]
+
+    for bg in gallery_bg:
+        gallery.button(bg)
+        gallery.unlock_image("bg " + bg)
+        gallery.Action(bg)
+
+screen gallery:
+
+    tag menu
+
+
 ## Экран Об игре ###############################################################
 ##
 ## Этот экран показывает авторскую информацию об игре и Ren'Py.
