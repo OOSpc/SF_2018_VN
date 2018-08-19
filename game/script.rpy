@@ -9,12 +9,12 @@ define u = Character('Юля', color="#ff0000")
 # а eileen happy — "eileen happy.webp", и тогда они появятся в игре.
 
 #Изображения заставок
-image preface =  "img/scr/preface.jpg"
-image un_day =  "img/scr/un_day.jpg"
+image preface =  "images/scr/preface.jpg"
+image un_day =  "images/scr/un_day.jpg"
 
 #Изображения фонов
-image nf =  "img/scn/night_forest.jpg"
-image nfc =  "img/scn/night_forest_clouds.jpg"
+image bg nf =  "images/bg/night_forest.jpg"
+image bg nfc =  "images/bg/night_forest_clouds.jpg"
 
 #Добавление звукового канала
 $ renpy.music.register_channel(u"bgs", "sfx", loop=True)
@@ -38,7 +38,7 @@ label start:
 
     play music "snd/mus/night_forest.mp3" fadein 3
 
-    scene nf with Dissolve(5.0)
+    scene bg nf with Dissolve(5.0)
 
     "Ночь, опустившаяся на Совёнок, окутала сосны и домики сизой дымкой, наполняя пространство некой густотой, означающей скорое приближение лета."
 
@@ -97,7 +97,7 @@ label start:
 
     "Моё волнение усиливается тем, что этой зимой их не было в Совёнке."
 
-    scene nfc with dissolve
+    scene bg nfc with dissolve
 
     "Луну начали медленно затягивать облака."
 
