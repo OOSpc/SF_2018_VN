@@ -13,8 +13,8 @@ image preface =  "images/scr/preface.jpg"
 image un_day =  "images/scr/un_day.jpg"
 
 #Изображения фонов
-image bg nf =  "images/bg/night_forest.jpg"
-image bg nfc =  "images/bg/night_forest_clouds.jpg"
+image bg night_forest =  "images/bg/night_forest.jpg"
+image bg night_forest_clouds =  "images/bg/night_forest_clouds.jpg"
 
 #Добавление звукового канала
 $ renpy.music.register_channel(u"bgs", "sfx", loop=True)
@@ -38,7 +38,7 @@ label start:
 
     play music "snd/mus/night_forest.mp3" fadein 3
 
-    scene bg nf with Dissolve(5.0)
+    scene bg night_forest with Dissolve(5.0)
 
     "Ночь, опустившаяся на Совёнок, окутала сосны и домики сизой дымкой, наполняя пространство некой густотой, означающей скорое приближение лета."
 
@@ -97,7 +97,7 @@ label start:
 
     "Моё волнение усиливается тем, что этой зимой их не было в Совёнке."
 
-    scene bg nfc with dissolve
+    scene bg night_forest_clouds with dissolve
 
     "Луну начали медленно затягивать облака."
 
