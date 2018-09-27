@@ -380,7 +380,7 @@ screen main_menu():
         auto mm_day_btns_prefix + "gallery_%s.png"
         xpos 0 ypos 0
         focus_mask True
-        action [Play("mm_click", "snd/gui/clk.mp3"),Gallery()]
+        action [Play("mm_click", "snd/gui/clk.mp3"),ShowMenu("gallery")]
         hovered Play("mm_hovered", "snd/gui/hvr.mp3")
 
     imagebutton:
@@ -597,72 +597,6 @@ style return_button:
     xpos gui.navigation_xpos
     yalign 1.0
     yoffset -45
-
-
-## Галерея #####################################################################
-init python:
-    gallery = Gallery()
-
-    gallery_mode = GALLERY_MODE_BG
-
-    thumbnail_width = 320
-    thumbnail_height = 180
-
-    rows = 3
-    cols = 4
-    cells = rows * cols
-    page = 0
-
-    gallery_bg = [
-    "night_forest",
-    "night_forest_clouds"
-    ]
-
-    for bg in gallery_bg:
-        gallery.button(bg)
-        gallery.unlock_image("bg " + bg)
-        gallery.Action(bg)
-
-    gallery.transition = fade
-
-screen gallery:
-    tag menu
-    $ gallery_table = []
-
-    add "#000"
-
-    if gallery_mode == GALLERY_MODE_BG:
-        $ gallery_table = gallery_bg
-
-    if gallery_mode == GALLERY_MODE_CG or gallery_mode == GALLERY_MODE_BG:
-        grid rows cols:
-            xfill True
-            yfill True
-
-            $ i = 0
-            $ next_page = page + 1
-            if next_page > int(len(gallery_table)/cells):
-                $ next_page = 0
-
-            for glr_item in gallery_table:
-                $ i += 1
-                if i <= (page + 1)*cells and i > page*cells:
-                    python:
-                        if gallery_mode == GALLERY_MODE_CG:
-                            thumbnail_temp = im.Scale(im.Crop("images/cg/" + glr_item + ".jpg" , (0,0,1920,1080)), thumbnail_width, thumbnail_height)
-                        elif gallery_mode == GALLERY_MODE_BG:
-                            thumbnail_temp = im.Scale(im.Crop("images/bg/" + glr_item + ".jpg" , (0,0,1920,1080)), thumbnail_width, thumbnail_height)
-
-                        thumbnail_idle = im.Composite((336,196),(8,8),im.Alpha(thumbnail_temp,0.9),(0,0),im.Image("images/gui/gallery/thumbnail_idle.png"))
-                        thumbnail_hover = im.Composite((336,196),(8,8),thumbnail_temp,(0,0),im.Image("images/gui/gallery/thumbnail_hover.png"))
-
-                    add gallery.make_button(glr_item, "images/gui/gallery/blank.png", None, thumbnail_hover, thumbnail_idle, style="blank_button", bottom_margin=50, right_margin=50)
-
-            for j in range(i, (page+1)*cells):
-                null
-
-        textbutton "Return" action Return() yalign 0.5 xalign 0.01
-
 
 ## Экран Об игре ###############################################################
 ##
