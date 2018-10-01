@@ -111,7 +111,7 @@ screen say(who, what):
 
         text what id "what"
 
-    $ dialogue_box_prefix = "img/gui/dialogue_box/"
+    $ dialogue_box_prefix = "images/gui/dialogue_box/"
     imagebutton:
         auto dialogue_box_prefix + "backward_%s.png"
         xpos 38 ypos 924
@@ -148,7 +148,7 @@ style window:
     yalign gui.textbox_yalign
     ysize gui.textbox_height
 
-    background Image("img/gui/dialogue_box/tw.png", xalign=0.5, yalign=1.0)
+    background Image("images/gui/dialogue_box/tw.png", xalign=0.5, yalign=1.0)
 
 style namebox:
     xpos gui.name_xpos
@@ -375,12 +375,12 @@ screen main_menu():
 
     add gui.main_menu_day_background
 
-    $ mm_day_btns_prefix = "img/gui/main_menu/main_menu_day_"
+    $ mm_day_btns_prefix = "images/gui/main_menu/main_menu_day_"
     imagebutton:
         auto mm_day_btns_prefix + "gallery_%s.png"
         xpos 0 ypos 0
         focus_mask True
-        action [Play("mm_click", "snd/gui/clk.mp3"),Gallery()]
+        action [Play("mm_click", "snd/gui/clk.mp3"),ShowMenu("gallery")]
         hovered Play("mm_hovered", "snd/gui/hvr.mp3")
 
     imagebutton:
@@ -597,7 +597,6 @@ style return_button:
     xpos gui.navigation_xpos
     yalign 1.0
     yoffset -45
-
 
 ## Экран Об игре ###############################################################
 ##
