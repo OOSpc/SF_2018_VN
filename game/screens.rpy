@@ -95,6 +95,8 @@ style frame:
 ## https://www.renpy.org/doc/html/screen_special.html#say
 
 screen say(who, what):
+    key "mouseup_3" action ShowMenu("history")
+
     style_prefix "say"
 
     window:
@@ -109,16 +111,16 @@ screen say(who, what):
 
         text what id "what"
 
-    $ dialogue_box_prefix = "img/gui/dialogue_box/"
+    $ dialogue_box_prefix = "images/gui/dialogue_box/"
     imagebutton:
         auto dialogue_box_prefix + "backward_%s.png"
         xpos 38 ypos 924
-        action ShowMenu("history")
+        action Rollback()
 
     imagebutton:
         auto dialogue_box_prefix + "forward_%s.png"
         xpos 1811 ypos 924
-        action Skip()
+        action RollForward()
 
     ## Если есть боковое изображение ("голова"), показывает её поверх текста.
     ## По стандарту не показывается на варианте для мобильных устройств — мало
@@ -146,7 +148,7 @@ style window:
     yalign gui.textbox_yalign
     ysize gui.textbox_height
 
-    background Image("img/gui/dialogue_box/tw.png", xalign=0.5, yalign=1.0)
+    background Image("images/gui/dialogue_box/tw.png", xalign=0.5, yalign=1.0)
 
 style namebox:
     xpos gui.name_xpos
@@ -377,7 +379,7 @@ screen main_menu():
         auto mm_day_btns_prefix + "gallery_%s.png"
         xpos 0 ypos 0
         focus_mask True
-        action Gallery()
+        action ShowMenu("gallery")
         hover_sound snd_button_hover
         activate_sound snd_button_activate
 
@@ -603,7 +605,6 @@ style return_button:
     xpos gui.navigation_xpos
     yalign 1.0
     yoffset -45
-
 
 ## Экран Об игре ###############################################################
 ##
@@ -1127,7 +1128,7 @@ screen mouse_help():
 
     hbox:
         label _("Правый клик")
-        text _("Вход в игровое меню.")
+        text _("Вход в меню истории.")
 
     hbox:
         label _("Колёсико вверх\nКлик на сторону отката")

@@ -11,3 +11,4 @@ traceback.txt
 *.rpymc
 *.pyc
 *.pyo
+*.bak

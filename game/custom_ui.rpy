@@ -7,7 +7,7 @@
 ## левого/правого и верхнего/нижнего бордюров
 ## соответственно.
 
-#style.window.background = Frame("img/gui/tw.png", 12, 12)
+#style.window.background = Frame("images/gui/tw.png", 12, 12)
 
 ## Внешние поля - пространство, окружающее окно, на котором
 ## не рисуется фон.
