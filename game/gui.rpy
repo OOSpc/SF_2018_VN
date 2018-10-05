@@ -52,6 +52,8 @@ define gui.hover_muted_color = '#99adc1'
 define gui.text_color = '#ffffff'
 define gui.interface_text_color = '#000000'
 
+## Цвет для текста уведомления
+define gui.notify_text_color = '#ffffff'
 
 ## Шрифты и их размеры #########################################################
 
