@@ -374,7 +374,7 @@ screen main_menu():
     $ snd_button_hover = "snd/gui/hvr.mp3"
     $ snd_button_activate = "snd/gui/clk.mp3"
 
-    $ mm_day_btns_prefix = "img/gui/main_menu/main_menu_day_"
+    $ mm_day_btns_prefix = "images/gui/main_menu/main_menu_day_"
     imagebutton:
         auto mm_day_btns_prefix + "gallery_%s.png"
         xpos 0 ypos 0
