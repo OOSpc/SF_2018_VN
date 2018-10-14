@@ -34,7 +34,8 @@ init python:
 screen gallery:
     tag menu
 
-    add "images/gui/gallery/gallery_bg.png"
+    $ renpy.take_screenshot((1920, 1080))
+    add FileCurrentScreenshot()
 
     $ gallery_table = []
     if gallery_mode == GALLERY_MODE_BG:
