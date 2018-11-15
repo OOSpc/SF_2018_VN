@@ -4,6 +4,7 @@ traceback.txt
 
 /game/saves
 /game/cache
+/game/temp
 #/game/gui
 
 *.rpyc
