@@ -34,8 +34,10 @@ init python:
 screen gallery:
     tag menu
 
-    $ renpy.take_screenshot((1920, 1080))
-    add FileCurrentScreenshot()
+    # $ renpy.exports.screenshot(config.gamedir + "temp/screenshot.jpg")
+    $ screen_bg = save_screenshot("back_screen.jpg")
+    # $ write_screenshot(FileCurrentScreenshot())
+    add blur_image(screen_bg)
 
     $ gallery_table = []
     if gallery_mode == GALLERY_MODE_BG:
