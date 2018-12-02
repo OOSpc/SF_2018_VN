@@ -36,7 +36,7 @@ label start:
     $ renpy.pause (5.0, hard=True)
     scene black with Dissolve(3)
 
-    play music "snd/mus/night_forest.mp3" fadein 3
+    play music "sound/mus/night_forest.mp3" fadein 3
 
     scene bg night_forest with Dissolve(5.0)
 

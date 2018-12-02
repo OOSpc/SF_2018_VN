@@ -371,8 +371,8 @@ screen main_menu():
 
     add gui.main_menu_day_background
 
-    $ snd_button_hover = "snd/gui/hvr.mp3"
-    $ snd_button_activate = "snd/gui/clk.mp3"
+    $ snd_button_hover = "sound/gui/hvr.mp3"
+    $ snd_button_activate = "sound/gui/clk.mp3"
 
     $ mm_day_btns_prefix = "gui/main_menu/main_menu_day_"
     imagebutton:
