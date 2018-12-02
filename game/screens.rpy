@@ -111,7 +111,7 @@ screen say(who, what):
 
         text what id "what"
 
-    $ dialogue_box_prefix = "/gui/dialogue_box/"
+    $ dialogue_box_prefix = "gui/dialogue_box/"
     imagebutton:
         auto dialogue_box_prefix + "backward_%s.png"
         xpos 38 ypos 924
@@ -148,7 +148,7 @@ style window:
     yalign gui.textbox_yalign
     ysize gui.textbox_height
 
-    background Image("/gui/dialogue_box/tw.png", xalign=0.5, yalign=1.0)
+    background Image("gui/dialogue_box/tw.png", xalign=0.5, yalign=1.0)
 
 style namebox:
     xpos gui.name_xpos

@@ -1,9 +1,9 @@
 ## Галерея #####################################################################
 init python:
     gallery = Gallery()
-    gallery.locked_button = "/gui/gallery/not_opened_idle.png"
-    gallery.idle_border = "/gui/gallery/thumbnail_idle.png"
-    gallery.hover_border = "/gui/gallery/thumbnail_hover.png"
+    gallery.locked_button = "gui/gallery/not_opened_idle.png"
+    gallery.idle_border = "gui/gallery/thumbnail_idle.png"
+    gallery.hover_border = "gui/gallery/thumbnail_hover.png"
 
     gallery_mode = GALLERY_MODE_BG         # init gallery mode: bg or cg
     thumbnail_width = 320
@@ -76,12 +76,12 @@ screen gallery:
 
     if current_page != 0:
         imagebutton:
-            auto "/gui/dialogue_box/backward_%s.png"
+            auto "gui/dialogue_box/backward_%s.png"
             yalign 0.5 xalign 0.01
             action (SetVariable('current_page', current_page - 1), ShowMenu("gallery"))
 
     imagebutton:
-        auto "/gui/dialogue_box/forward_%s.png"
+        auto "gui/dialogue_box/forward_%s.png"
         yalign 0.5 xalign 0.99
         action (SetVariable('current_page', next_page), ShowMenu("gallery"))
 
