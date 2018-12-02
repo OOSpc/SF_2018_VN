@@ -34,10 +34,10 @@ init python:
 screen gallery:
     tag menu
 
-    # $ renpy.exports.screenshot(config.gamedir + "temp/screenshot.jpg")
-    $ screen_bg = save_screenshot("back_screen.jpg")
-    # $ write_screenshot(FileCurrentScreenshot())
-    add blur_image(screen_bg)
+    $ renpy.take_screenshot((1920, 1080))
+    # $ renpy.image("scr_bg", im.MatrixColor(FileCurrentScreenshot(), im.matrix.tint(0.8, 0.8, 0.8)))
+    add FileCurrentScreenshot()
+    add "/gui/shading_70pc.png"
 
     $ gallery_table = []
     if gallery_mode == GALLERY_MODE_BG:
