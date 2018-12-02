@@ -76,12 +76,12 @@ screen gallery:
 
     if current_page != 0:
         imagebutton:
-            auto "images/gui/dialogue_box/backward_%s.png"
+            auto "/gui/dialogue_box/backward_%s.png"
             yalign 0.5 xalign 0.01
             action (SetVariable('current_page', current_page - 1), ShowMenu("gallery"))
 
     imagebutton:
-        auto "images/gui/dialogue_box/forward_%s.png"
+        auto "/gui/dialogue_box/forward_%s.png"
         yalign 0.5 xalign 0.99
         action (SetVariable('current_page', next_page), ShowMenu("gallery"))
 
