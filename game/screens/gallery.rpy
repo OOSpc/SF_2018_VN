@@ -1,9 +1,9 @@
 ## Галерея #####################################################################
 init python:
     gallery = Gallery()
-    gallery.locked_button = "images/gui/gallery/not_opened_idle.png"
-    gallery.idle_border = "images/gui/gallery/thumbnail_idle.png"
-    gallery.hover_border = "images/gui/gallery/thumbnail_hover.png"
+    gallery.locked_button = "/gui/gallery/not_opened_idle.png"
+    gallery.idle_border = "/gui/gallery/thumbnail_idle.png"
+    gallery.hover_border = "/gui/gallery/thumbnail_hover.png"
 
     gallery_mode = GALLERY_MODE_BG         # init gallery mode: bg or cg
     thumbnail_width = 320
