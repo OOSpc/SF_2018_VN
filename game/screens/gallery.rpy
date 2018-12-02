@@ -34,7 +34,10 @@ init python:
 screen gallery:
     tag menu
 
-    add "images/gui/gallery/gallery_bg.png"
+    $ renpy.take_screenshot((1920, 1080))
+    # $ renpy.image("scr_bg", im.MatrixColor(FileCurrentScreenshot(), im.matrix.tint(0.8, 0.8, 0.8)))
+    add FileCurrentScreenshot()
+    add "/gui/shading_70pc.png"
 
     $ gallery_table = []
     if gallery_mode == GALLERY_MODE_BG:
